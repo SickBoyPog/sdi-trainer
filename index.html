@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>SickBoy’s SDI Trainer</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="preset-editor.css"><link id="windowsTheme" rel="stylesheet" href="theme-windows.css" disabled>
+</head>
+<body>
+<main>
+    <div class="page-title"><h1>SickBoy’s SDI Trainer</h1><div class="page-tools">    <div class="connection" aria-live="polite">
+      <span id="connectionDot" class="status-dot demo"></span>
+      <span id="connectionText">Disconnected · Simulation</span><span id="portLabel">Port 1</span>
+    </div><button id="quickConnectButton" class="button secondary">Connect adapter</button><button id="settingsButton" class="button secondary">Settings</button></div></div>
+    <section class="training-column" aria-label="SDI trainer">
+<article class="panel stick-panel"><div class="panel-heading"><h2>Live Input</h2><button id="sdiGuideButton" type="button" class="button sdi-guide-button">How to SDI</button></div><div class="stick-workspace"><div class="stick-stage"><canvas id="stickCanvas" width="700" height="560" aria-label="Live control stick visualization"></canvas></div><aside class="stick-sidebar"><div class="live-badges">
+            <label class="stick-display-label">Stick view <select id="stickDisplay"><option value="ultimate">Physical + Ultimate</option><option value="ultimate-only">Ultimate only</option></select></label><div class="stick-view-key"><span><i class="physical-key-dot" tabindex="0" aria-label="Actual stick position"></i><span class="stick-symbol-tip" role="tooltip">Actual stick position</span>Physical</span><span><i class="ultimate-key-diamond" tabindex="0" aria-label="Simulated Smash Ultimate stick position"></i><span class="stick-symbol-tip" role="tooltip">Simulated Smash Ultimate stick position</span>Ultimate</span></div><label class="active-zone-toggle"><input id="showActiveZones" type="checkbox" checked> Active zones</label><span id="inputMode" class="pill">Mouse / keys</span>
+            <div id="sdiFlash" class="sdi-flash" hidden><i></i><strong>SDI</strong><span id="acceptedLiveCount">0</span></div>
+          </div><div id="cueBadge" class="cue-badge idle" hidden><span>Hitlag</span><strong>—</strong></div><div class="c-stick-mini"><span>C-Stick</span><canvas id="cStickCanvas" width="64" height="64" aria-label="Live C-Stick visualization"></canvas></div></aside></div></article>
+
+<div class="session-stack panel">
+  <section id="editorControls" aria-labelledby="editorControlsTitle" hidden>
+    <h3 id="editorControlsTitle">Annotations</h3>
+    <div class="editor-add">
+      <button id="editorAddHit" type="button" class="button secondary" disabled>Add hitlag window</button>
+      <button id="editorAddDI" type="button" class="button secondary" disabled>Add DI marker</button>
+    </div>
+    <label class="editor-select" for="editorAnnotations">Select annotation</label>
+    <select id="editorAnnotations" disabled><option value="">No annotations</option></select>
+    <form id="editorAnnotation" hidden>
+      <h4 id="editorAnnotationTitle"></h4>
+      <div class="editor-fields">
+        <label><span id="editorStartLabel">Start frame</span><input id="editorStart" type="number" min="0" step="1" required></label>
+        <label id="editorLengthLabel">Length (frames)<input id="editorLength" type="number" min="1" step="1" required></label>
+        <div id="editorEndLabel">End frame<output id="editorEnd">—</output></div>
+      </div>
+      <div class="editor-actions">
+        <button id="editorApply" type="submit" class="button secondary">Apply</button>
+        <button id="editorRemove" type="button" class="button tertiary">Delete</button>
+      </div>
+    </form>
+    <p id="editorStatus" role="status">Choose a clip to begin.</p>
+    <div class="editor-actions editor-draft-actions">
+      <button id="editorSave" type="button" class="button primary" disabled>Save preset</button>
+    </div>
+  </section>
+      <section class="panel session-panel">
+        <div id="sessionReady"><h2 id="presetName">Meta Knight Up-Airs</h2><p id="presetDescription">Ready to start.</p></div>
+        <div class="session-actions"><button id="startButton" class="button primary">Start drill</button><button id="stopButton" class="button secondary" disabled>Stop</button><label class="attempt-history-label">Recent attempts<select id="attemptHistory"><option value="">No recent attempts</option></select></label></div>
+      </section>
+
+<aside id="personalBest" hidden><button id="clearPersonalBest" type="button" aria-label="Clear current personal best" title="Clear personal best" disabled>×</button><div id="bestDetails"><h3>Personal Best</h3><strong id="bestScore">—</strong><p id="bestPercent"></p><p id="bestDate"></p><p id="bestMessage"></p><button id="replayBest" class="button secondary" disabled>Replay best</button></div><div id="clearBestInline" hidden><h3>Clear personal best?</h3><p>Recent attempts stay saved.</p><button id="cancelClearBest" class="button secondary" type="button">Cancel</button> <button id="confirmClearBest" class="button secondary" type="button">Clear PB</button></div></aside><p id="resultsPlaceholder">Complete an attempt to see results.</p>
+<section id="resultsPanel" class="panel results-panel" hidden>
+      <div class="result-score"><p class="kicker">Accepted / possible</p><strong id="scoreValue">0</strong></div>
+      <div class="result-content">
+        <div class="panel-heading"><div><h2 id="resultTitle">Timing needs work</h2><p id="resultSummary">Your run summary will appear here.</p></div><span id="replayStatus" class="replay-status"></span></div>
+        <div id="metrics" class="metrics"></div><div id="coaching" class="coaching"></div>
+      </div>
+    </section>
+</div>
+    <section id="videoPanel" class="panel video-panel" hidden><span id="replayIndicatorBadge" aria-label="Recorded attempt loaded">REPLAY</span><div class="panel-heading"><h2>Video</h2><span id="videoStatus" role="status">Preparing video…</span></div><video id="comboVideo" playsinline preload="auto" disablepictureinpicture></video><details id="orbSettings" hidden><summary>Game settings</summary><div class="orb-settings-menu"><span class="banana-lock-wrap"><button id="bananaSettingsLock" type="button" aria-label="Unlock custom settings">🔒</button><span class="banana-lock-tip" role="tooltip">Unlock to change the timer or spawn directions. Only timed runs with standard timer and spawn settings count toward personal bests. Runs with custom timer or direction settings won’t grant unlocks.</span></span><header class="banana-menu-heading"><h3>Game settings</h3></header><div class="banana-menu-options"><label>Mode<select id="orbMode"><option value="burst" selected>Burst</option><option value="endurance">Endurance</option></select></label><label>Direction arrow<select id="orbArrowReach"><option value="off">Off</option><option value="banana">To banana</option><option value="edge">To screen edge</option></select></label><label>Timer<select id="orbTiming"><option value="timed" selected>Timed</option><option value="untimed">Untimed (no unlocks)</option></select></label></div><section class="banana-direction-panel"><h4>Spawn directions</h4><canvas id="bananaDirectionWheel" width="240" height="240" aria-label="Select banana spawn directions"></canvas><div class="direction-actions"><button id="bananaDirectionMode" type="button" aria-pressed="false">Ranges</button><button id="bananaDirectionsAll" type="button">All</button><button id="bananaDirectionsClear" type="button">Clear</button></div><p id="bananaDirectionHint">Click or drag to select directions</p></section><button id="closeBananaSettings" type="button">Back to bananas</button></div><input id="orbTimer" type="hidden" value="1"></details><div id="orbModeDisplay" hidden><span id="orbModeName">Burst mode</span><span class="orb-mode-info" tabindex="0" aria-label="Training tip" aria-describedby="orbModeTip">ⓘ<span id="orbModeTip" role="tooltip"></span></span></div><div id="orbUnlockNotice" role="status" aria-atomic="true"></div><button id="orbCharacterHint" type="button" hidden><img src="assets/controller-y.svg" alt="Y"> Switch character</button><canvas id="hitlagOrb" aria-label="Diddy Kong Want Banana!: orb moves with accepted SDI inputs" hidden></canvas></section>
+    <section id="editorClip" class="panel editor-clip" aria-labelledby="editorTitle" hidden>
+      <div class="panel-heading editor-heading">
+        <h2 id="editorTitle">Preset Editor</h2>
+        <div id="editorHelpWrap">
+          <button id="editorHelp" type="button" aria-label="Preset Editor quick help" aria-expanded="false" aria-controls="editorHelpText"><span aria-hidden="true">i</span></button>
+          <div id="editorHelpText" class="stick-symbol-tip" hidden>
+            <ul>
+              <li><strong>Use 60 FPS footage if possible.</strong> Lower frame rates can hide the exact impact frame. The editor timeline always runs at 60 FPS.</li>
+              <li><strong>Start the hitlag box one frame after impact.</strong> Find the first frame where the hit spark appears, step forward once, then click <strong>Add hitlag window</strong>.</li>
+              <li><strong>Use the full hitlag length.</strong> Look up the specific hit in <a href="https://rubendal.github.io/SSBU-Calculator/index.html" target="_blank" rel="noopener noreferrer">Ruben’s Smash Ultimate Calculator</a> and enter its hitlag duration in frames.</li>
+            </ul>
+            <p class="editor-help-note">Presets can be managed in the <code>presets</code> folder.</p>
+          </div>
+        </div>
+      </div>
+      <div id="editorDrop" class="editor-drop">
+        <div id="editorDropPrompt"><strong>Drop a clip here</strong><span>MP4, WebM or MOV · 2–60 seconds</span></div>
+        <video id="editorVideo" muted playsinline preload="auto" disablepictureinpicture hidden></video>
+      </div>
+      <div class="editor-file-row">
+        <button id="editorChoose" class="button secondary" type="button">Choose clip…</button>
+        <input id="editorFile" type="file" accept=".mp4,.webm,.mov" hidden>
+        <span id="editorFileName"></span>
+      </div>
+    </section>
+      <section class="panel timeline-panel">
+        <div class="panel-heading timeline-heading">
+          <div class="timeline-title-row"><div><h2>Timeline</h2></div><img class="preset-shoulder-icon" src="assets/controller-l.svg" alt="L: previous preset"><button id="previousPreset" class="button tertiary preset-nav" type="button" aria-label="Previous preset" hidden>‹</button><div id="presetControls" class="preset-controls"><button data-preset="Luigi Combo" class="button tertiary">Luigi Combo</button><button data-preset="Diddy Kong Want Banana!" class="button tertiary">Diddy Kong Want Banana!</button></div><button id="nextPreset" class="button tertiary preset-nav" type="button" aria-label="Next preset" hidden>›</button><img class="preset-shoulder-icon" src="assets/controller-r.svg" alt="R: next preset"><div class="preset-editor-nav"><button id="openPresetEditor" class="button tertiary" type="button" aria-pressed="false">Create new</button><button id="editorClose" class="button tertiary" type="button" aria-label="Close Preset Editor" title="Close and discard the draft" hidden>Close</button></div></div>
+
+        </div>
+
+<div id="editorTimeline" hidden>
+  <div id="editorTrack" class="editor-track" aria-label="Preset annotations timeline">
+    <div id="editorTicks" aria-hidden="true"></div>
+    <div id="editorMarkers"></div>
+    <div id="editorPlayhead" aria-hidden="true" hidden></div>
+  </div>
+  <input id="editorScrub" type="range" min="0" max="1" step="1" value="0" aria-label="Scrub trainer frames" disabled>
+  <div class="frame-controls editor-frame-controls">
+    <button id="editorPrev" class="button tertiary" type="button" disabled>Previous frame</button>
+    <div><output id="editorFrame">No clip loaded</output><span id="editorPicture"></span></div>
+    <button id="editorNext" class="button tertiary" type="button" disabled>Next frame</button>
+  </div>
+</div>
+<div class="timeline-stage"><canvas id="timelineCanvas" width="1500" height="360" aria-label="SDI drill timeline"></canvas><button id="practiceStart" class="practice-handle start" aria-label="Practice start" title="Drag to set attempt start"></button><button id="practiceEnd" class="practice-handle end" aria-label="Practice end" title="Drag to set attempt end"></button><button id="practiceReset" type="button" hidden>Full combo</button><span id="practiceWarning" tabindex="0" hidden aria-label="This section does not qualify for Personal Best"><span class="practice-warning-icon">i</span><span class="practice-warning-tip">This attempt won’t count for Personal Best because not all hitlag boxes are included.</span></span></div>
+<div class="timeline-footer"><div class="timeline-actions">
+            <div class="timeline-key" aria-label="Timeline legend"><span><i class="key-window"></i>Hitlag</span><span><i class="key-dot accepted"></i>SDI-Input</span><span><i class="key-dot buffered"></i>Buffered</span><span><b class="key-c">C</b>C-Stick</span><span><i class="key-dot rejected"></i>Not counted</span><span><i class="key-dot outside"></i>Outside hitlag</span><button id="toggleEarlyMarkers" type="button" class="legend-toggle" aria-pressed="true"><b class="key-early">!</b>Early start</button><button id="toggleBufferLines" type="button" class="legend-toggle" aria-pressed="false"><i class="key-buffer-line"></i>Buffer lines</button><span><b class="key-arrow">↗</b>Direction</span><span><b class="key-net">→ / ○</b>Net direction</span></div><div class="replay-actions"><button id="replayButton" class="button secondary" hidden>Replay</button><label class="replay-speed-setting">Replay speed <output id="replaySpeedValue">100%</output><input id="replaySpeed" type="range" min="10" max="100" step="5" value="100"></label></div><div id="timelineFrameControls" class="frame-controls" hidden><button id="previousFrame" class="button tertiary">Previous frame</button><span id="inspectedFrame">Select a recorded frame</span><button id="nextFrame" class="button tertiary">Next frame</button></div><div class="clock"><strong id="clock">00.00</strong><span id="durationLabel">/ 10.00 s</span></div>
+          </div></div>
+        <section id="hitlagInspector" class="window-inspector" hidden>
+<div class="panel-heading"><h2>Hitlag Inspector</h2><strong id="windowScore" aria-live="polite"></strong><div class="inspector-actions"><button id="replayWindow" class="button secondary" disabled>Replay window</button><button id="closeInspector" class="text-button">Close</button></div></div>
+
+<div class="lockout-legend"><span tabindex="0" class="lockout-key"><i class="lockout-swatch sdi-lockout"></i>SDI Lockout<span class="lockout-tip" role="tooltip">No new SDI inputs can be made. SDI inputs can be buffered.</span></span><span tabindex="0" class="lockout-key"><i class="lockout-swatch c-lockout"></i>C-stick Lockout window<span class="lockout-tip" role="tooltip">No new SDI inputs can be made. <strong>No SDI inputs can be buffered.</strong></span></span></div>
+<canvas id="windowFrames" aria-label="Expanded hitlag frames"></canvas><div id="windowDetail" class="window-detail"></div><div id="diDirection" class="window-detail" style="color:#ff5f68" hidden></div><div id="inspectionState" role="status"></div>
+</section>
+</section>
+
+<details id="frameTest" class="panel frame-test">
+ <summary>Frame test · debug</summary>
+ <p>60 hitlag frames. Hold either stick, then capture one frame. Moving between steps does not count.</p>
+ <div class="frame-test-actions"><button id="debugNext" class="button primary">Next frame</button><button id="debugReset" class="button secondary">Reset</button><span id="debugFrame">0 / 60</span></div>
+ <label><input type="checkbox" id="debugManual"> Set stick positions manually (physical values)</label>
+ <div id="debugInputs" hidden><label>Main X <input id="debugLX" type="number" min="-1" max="1" step="0.01" value="0"></label><label>Main Y <input id="debugLY" type="number" min="-1" max="1" step="0.01" value="0"></label><label>C X <input id="debugCX" type="number" min="-1" max="1" step="0.01" value="0"></label><label>C Y <input id="debugCY" type="number" min="-1" max="1" step="0.01" value="0"></label></div>
+ <p class="debug-help">Keyboard: arrows / WASD main stick; I J K L C-stick; N next frame. Manual values are physical gate fractions.</p>
+ <div class="debug-viewports">
+<div><strong>Main stick</strong><canvas id="debugMainStick" width="320" height="320" aria-label="Debug main stick and next-frame guidance"></canvas></div>
+<div><strong>C-stick</strong><canvas id="debugCStick" width="240" height="240" aria-label="Debug C-stick and next-frame guidance"></canvas></div>
+<div class="debug-guidance"><p id="debugDisplayNote"></p><p>Solid dot: live position · white ring: last captured position.</p><p><span class="guide-green">Green: new input accepted</span><br><span class="guide-amber">Amber: new input buffered</span><br><span class="guide-red">Red: candidate blocked by full buffer</span><br><span class="guide-blue">Blue: return here to rearm C-stick</span></p><p>Each map assumes the other stick stays at its current live position. Click a map to set manual physical values, then press Next frame.</p><p id="debugGuidanceStatus" role="status"></p></div>
+</div><div class="debug-readouts"><span id="debugBuffer">Buffered: none</span><span id="debugLockout">Lockout: 0 frames</span><span id="debugLive"></span></div>
+ <canvas id="debugTimeline" width="1500" height="130" aria-label="60-frame hitlag test timeline"></canvas>
+ <p id="debugOutcome" role="status">Ready to capture frame 1.</p><p id="debugArrow"></p>
+</details>
+
+
+
+    </section>
+
+
+  </main>
+
+      <dialog id="settingsDrawer" class="panel setup-panel">
+<div class="panel-heading"><h2>Settings</h2><div class="settings-heading-actions"><button id="themeSwitch" type="button" role="switch" aria-label="Windows 95 theme" aria-checked="false"><svg class="theme-windows-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#e65343" d="M2 2h9v9H2z"/><path fill="#66a54b" d="M13 2h9v9h-9z"/><path fill="#4c92c5" d="M2 13h9v9H2z"/><path fill="#e8bd48" d="M13 13h9v9h-9z"/></svg><svg class="theme-moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2A10 10 0 1 0 22 12A7 7 0 0 1 12 2Z"/></svg><span class="theme-switch-thumb" aria-hidden="true"></span></button><button id="closeSettings" class="button tertiary">Close</button></div></div>
+<div class="setup-content settings-organized">
+<section class="settings-section"><h3>Controller</h3><div class="controller-setting-row"><label class="field"><span>Controller</span><select id="controllerKind"><option value="adapter">GameCube adapter</option><option value="pro">Pro Controller · USB</option></select></label><button id="connectButton" class="button secondary">Connect adapter</button><label class="field"><span>Controller port</span><select id="portSelect"><option value="0">Port 1</option><option value="1">Port 2</option><option value="2">Port 3</option><option value="3">Port 4</option></select></label></div></section>
+<section class="settings-section"><div class="after-attempt-setting"><div class="after-attempt-label"><label for="afterAttemptAction"><img src="assets/controller-a.svg" alt="A"> after an attempt</label><span class="after-attempt-info" tabindex="0" aria-label="About A after an attempt" aria-describedby="afterAttemptTip">i</span><span id="afterAttemptTip" class="stick-symbol-tip" role="tooltip">There is a manual replay button below the timeline.</span></div><select id="afterAttemptAction"><option value="replay">Replay</option><option value="retry">Retry</option></select></div></section>
+<section class="settings-section"><div class="setting-title"><label for="inputDelay">Additional input delay</label><output id="inputDelayValue">3 frames</output></div><input id="inputDelay" type="range" min="0" max="6" step="1" value="3"><div class="range-endpoints"><span>0 frames</span><span>6 frames</span></div><p class="setting-help">Measured trainer response: ≈3.7 frames (includes controller and display). Recommended additional delay: 3–4 frames. Frame test is immediate.</p></section>
+<section class="settings-section"><div class="setting-title"><label for="volume">Volume</label><span class="sound-toggles"><label><input id="sdiSound" type="checkbox" checked> SDI Sound</label><label><input id="risingSdiSound" type="checkbox" checked> Rising SDI sound</label></span><output id="volumeValue">80%</output></div><input id="volume" type="range" min="0" max="1" step="0.01" value="0.8"><div class="range-endpoints"><span>0</span><span>100</span></div></section>
+<details class="settings-diagnostics"><summary>Diagnostics</summary><dl class="device-stats"><div><dt>Adapter rate</dt><dd id="pollRate">—</dd></div><div><dt>Controller</dt><dd id="controllerState">Simulated</dd></div><div><dt>Input timing</dt><dd id="inputTiming">—</dd></div><div><dt>Video sync</dt><dd id="videoSync">—</dd></div><div><dt>Sample model</dt><dd>60 FPS</dd></div><div><dt>SDI interval</dt><dd>4 frames</dd></div></dl><details class="technical-readout">
+          <summary>Live numbers</summary>
+          <div class="telemetry">
+            <div><span>Raw X</span><strong id="rawX">128</strong></div>
+            <div><span>Raw Y</span><strong id="rawY">128</strong></div>
+            <div><span>Magnitude</span><strong id="magnitude">0.00</strong></div>
+            <div><span>Angle</span><strong id="angle">—</strong></div>
+          </div>
+        </details><details class="diagnostics"><summary>Connection details</summary><pre id="connectionLog">No connection attempt yet.</pre><button id="copyDiagnosticsButton" class="text-button">Copy diagnostics</button></details></details><div id="notice" class="notice"><strong>Native adapter mode</strong><span>Launch with Start-SDI-Trainer.cmd. The local native bridge accesses WinUSB without the browser's protected-interface restriction.</span></div><div hidden><fieldset class="sound-settings"><legend>Sound</legend><label><input type="checkbox" id="soundEnabled" checked> Sound enabled</label><label><input id="outsideSound" type="checkbox" checked> Suppressed outside-hitlag sound</label><label><input id="dingSound" type="checkbox" checked> Maximum-window ding</label><label><input id="sessionSound" type="checkbox" checked> Start / finish</label></fieldset></div><label hidden class="field range-field"><span>C refresh minimum strength <output id="thresholdOutput">0.70</output></span><input id="thresholdInput" type="range" min="0.55" max="0.85" value="0.70" step="0.01"><small>Main stick uses estimated zones from the French video. C-stick behavior is unchanged.</small></label></div>
+
+      </dialog>
+  <dialog id="editorSaveDialog" class="panel" aria-labelledby="editorSaveTitle">
+    <form id="editorSaveForm">
+      <h3 id="editorSaveTitle">Save preset</h3>
+      <label>Preset name<input id="editorName" type="text" maxlength="64" required autofocus></label>
+      <p id="editorSaveStatus" role="status"></p>
+      <div class="editor-actions">
+        <button id="editorSaveConfirm" class="button primary" type="submit">Save</button>
+        <button id="editorSaveBack" class="button secondary" type="button">Back to draft</button>
+      </div>
+    </form>
+  </dialog>
+  <footer><span>Version 1.2.13</span><span>External controller analysis; no Switch memory access.</span></footer>
+  <script type="module" src="js/app.js"></script>
+<dialog id="orbDevMenu"><h3>Developer menu</h3><fieldset><legend>Burst timers</legend><label>Starting timer (seconds)<span class="dev-slider"><input id="burstStartTimer" type="range" min="0.1" max="5" step="0.05" value="1"><output id="burstStartTimerValue">1 s</output></span></label><label>Minimum timer (seconds)<span class="dev-slider"><input id="burstEndTimer" type="range" min="0.1" max="5" step="0.05" value="0.75"><output id="burstEndTimerValue">0.75 s</output></span></label><label>Reach minimum after bananas<span class="dev-slider"><input id="burstRampBananas" type="range" min="1" max="50" step="1" value="15"><output id="burstRampBananasValue">15 bananas</output></span></label></fieldset><fieldset><legend>Endurance timers</legend><label>Starting timer (seconds)<span class="dev-slider"><input id="enduranceStartTimer" type="range" min="0.1" max="5" step="0.05" value="2"><output id="enduranceStartTimerValue">2 s</output></span></label><label>Minimum timer (seconds)<span class="dev-slider"><input id="enduranceEndTimer" type="range" min="0.1" max="5" step="0.05" value="1.5"><output id="enduranceEndTimerValue">1.5 s</output></span></label><label>Reach minimum after bananas<span class="dev-slider"><input id="enduranceRampBananas" type="range" min="1" max="50" step="1" value="15"><output id="enduranceRampBananasValue">15 bananas</output></span></label></fieldset><label id="orbBreakSetting">Break between bananas<select id="orbBreak"><option value="0">0 s</option><option value="0.1">0.1 s</option><option value="0.2">0.2 s</option><option value="0.3" selected>0.3 s</option><option value="0.4">0.4 s</option><option value="0.5">0.5 s</option><option value="0.75">0.75 s</option><option value="1">1 s</option></select></label><label><input id="orbUntimedEvents" type="checkbox"> Allow celebrations / achievements in untimed runs</label><p><button id="testDKEvent" type="button">Test DK unlock event</button> <button id="testDixieEvent" type="button">Test Dixie unlock event</button></p><button id="resetOrbDevDefaults" type="button">Reset developer defaults</button> <button id="resetOrbProgress" type="button">Reset game progress</button> <button id="closeOrbDevMenu" type="button">Close</button></dialog></body>
+</html>

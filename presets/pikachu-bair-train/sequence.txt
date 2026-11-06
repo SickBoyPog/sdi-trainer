@@ -1,0 +1,75 @@
+SDI-LAB-SEQUENCE 3
+name Pikachu Bair Train
+video video.mp4
+order 2
+fps 60
+# Export correction: all window starts shifted -1 frame. Durations unchanged.
+# Original impact timestamp comments below refer to the pre-export clip.
+frames 529
+# window <start_frame> <duration_frames> <escape_degrees>
+# Short-hop aerials; no freshness bonus or staling; no landing hits.
+# Starts are impact + 1; durations use Ruben's calculator values without subtracting 1.
+# Direction not supplied: right (0 degrees) is a placeholder for all hits.
+# Intermediate impacts are predicted at 9-frame intervals, matching supplied finisher timestamps.
+# Bair 1: move starts 01:38.
+# 01:41 supplied impact (101) - bair 1, aerial hit 1
+window 101 6 0
+# 01:50 predicted impact (110) - bair 1, aerial hit 2
+window 110 6 0
+# 01:59 predicted impact (119) - bair 1, aerial hit 3
+window 119 6 0
+# 02:08 predicted impact (128) - bair 1, aerial hit 4
+window 128 6 0
+# 02:17 predicted impact (137) - bair 1, aerial hit 5
+window 137 6 0
+# 02:26 supplied impact (146) - bair 1, hit 6 / finisher
+window 146 15 0
+# Bair 2: move starts 03:03.
+# 03:06 supplied impact (186) - bair 2, aerial hit 1
+window 186 6 0
+# 03:15 predicted impact (195) - bair 2, aerial hit 2
+window 195 6 0
+# 03:24 predicted impact (204) - bair 2, aerial hit 3
+window 204 6 0
+# 03:33 predicted impact (213) - bair 2, aerial hit 4
+window 213 6 0
+# 03:42 predicted impact (222) - bair 2, aerial hit 5
+window 222 6 0
+# 03:51 supplied impact (231) - bair 2, hit 6 / finisher
+window 231 15 0
+# Bair 3: move starts 04:27.
+# 04:30 supplied impact (270) - bair 3, aerial hit 1
+window 270 6 0
+# 04:39 predicted impact (279) - bair 3, aerial hit 2
+window 279 6 0
+# 04:48 predicted impact (288) - bair 3, aerial hit 3
+window 288 6 0
+# 04:57 predicted impact (297) - bair 3, aerial hit 4
+window 297 6 0
+# 05:06 predicted impact (306) - bair 3, aerial hit 5
+window 306 6 0
+# 05:15 supplied impact (315) - bair 3, hit 6 / finisher
+window 315 15 0
+# Bair 4: move starts 05:53.
+# 06:00 supplied impact (360) - bair 4, aerial hit 2
+window 360 6 0
+# 06:09 predicted impact (369) - bair 4, aerial hit 3
+window 369 6 0
+# 06:18 predicted impact (378) - bair 4, aerial hit 4
+window 378 6 0
+# 06:27 predicted impact (387) - bair 4, aerial hit 5
+window 387 6 0
+# 06:36 supplied impact (396) - bair 4, hit 6 / finisher
+window 396 15 0
+# Bair 5: move starts 07:15.
+# 07:22 supplied impact (442) - bair 5, aerial hit 2
+window 442 6 0
+# 07:31 predicted impact (451) - bair 5, aerial hit 3
+window 451 6 0
+# 07:40 predicted impact (460) - bair 5, aerial hit 4
+window 460 6 0
+# 07:49 predicted impact (469) - bair 5, aerial hit 5
+window 469 6 0
+# 07:58 supplied impact (478) - bair 5, hit 6 / finisher
+window 478 15 0
+# Bairs 4-5 first connect on aerial hit 2; aerial hit 1 is omitted.

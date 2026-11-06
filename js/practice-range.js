@@ -1,0 +1,3 @@
+export function includedHits(drill,range){return drill.hits.filter(h=>h.startFrame>=range.start&&h.startFrame+h.lengthFrames<=range.end);}
+export function fullHitCoverage(drill,range){return drill.hits.every(h=>h.startFrame>=range.start&&h.startFrame+h.lengthFrames<=range.end);}
+export function moveRange(drill,range,side,frame){let f=Math.max(0,Math.min(drill.durationFrames,Math.round(frame)));const hit=drill.hits.find(h=>f>h.startFrame&&f<h.startFrame+h.lengthFrames);if(hit)f=side==='start'?hit.startFrame:hit.startFrame+hit.lengthFrames;return side==='start'?{start:Math.min(f,range.end-1),end:range.end}:{start:range.start,end:Math.max(f,range.start+1)};}

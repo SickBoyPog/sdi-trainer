@@ -1,0 +1,87 @@
+SICKBOY'S SDI TRAINER — WINDOWS FIRST-TIME SETUP
+
+YOU NEED
+A Windows 10/11 64-bit PC, internet for first-time setup, a browser
+(use Edge for initial testing), and one supported controller:
+- GameCube controller with a Wii U/Switch-compatible USB adapter that
+  identifies as WUP-028 (USB ID 057E:0337).
+- Original Nintendo Switch Pro Controller connected by USB data cable.
+  Bluetooth, Switch 2 Pro and third-party Pro controllers are not supported.
+
+1. EXTRACT THE TRAINER
+Right-click the trainer ZIP > Extract All. Open the extracted folder and
+keep its contents together. Do not run it from inside the ZIP or open
+index.html directly. Use a normal folder you can write to, such as Documents.
+
+2. INSTALL PYTHON ONCE
+If Python 3.9 or newer is already installed, continue to controller setup.
+Otherwise, get a current stable Windows installer (64-bit) from:
+https://www.python.org/downloads/windows/
+Use the standard installation with pip and the Python launcher included.
+If offered, enable "Add python.exe to PATH". Finish installation before
+starting the trainer.
+
+3. PREPARE YOUR CONTROLLER
+Close Dolphin, Steam and controller-mapping apps before connecting.
+
+GAMECUBE ADAPTER
+Plug in the adapter's data USB cable (black on the official adapter),
+then plug your controller into Port 1. If the adapter has a mode switch,
+select Wii U/Switch mode, not PC mode.
+
+Try connecting in the trainer first. If the matching WUP-028 device is
+detected but the trainer cannot open it, check the Windows USB driver:
+  a. Download and run Zadig: https://zadig.akeo.ie/
+  b. Choose Options > List All Devices.
+  c. Select WUP-028 and verify USB ID 057E 0337.
+  d. Select WinUSB as the replacement driver, then Install/Replace Driver.
+     Approve the Windows administrator prompt and wait for completion.
+     If WinUSB is already installed for this device, leave it unchanged.
+Change ONLY the matching adapter device. If the name/ID does not match,
+stop and ask for help; do not change another device's driver.
+Dolphin itself is not required. Adapter setup reference:
+https://dolphin-emu.org/docs/guides/how-use-official-gc-controller-adapter-wii-u/
+
+PRO CONTROLLER
+Connect it directly to the PC with a USB cable that carries data, not
+only charging power. Do not use Zadig or replace its Windows driver.
+
+4. START THE TRAINER
+Double-click Start-SDI-Trainer.cmd. The first launch creates a local Python
+environment and downloads dependencies; let it finish. Do not close the
+command window: it runs the trainer. No separate Node.js setup is needed.
+
+The launcher opens your default browser. To use another browser, copy the
+URL from the opened tab's address bar and paste it into Edge (or your chosen
+browser). The same address is also printed in the command window.
+The normal launcher uses port 8765. Check the footer says Version 1.2.13.
+
+5. CONNECT AND CHECK
+Open Settings. Choose GameCube adapter or Pro Controller · USB.
+For GameCube, select the port your controller occupies. Click the
+connection button. Briefly release all buttons, triggers and sticks.
+Check that the status reports connected and both Live Input stick markers
+follow your sticks. You are ready to use the trainer.
+
+NEXT TIME / CLOSING
+Run Start-SDI-Trainer.cmd again; installed dependencies are reused.
+Close the browser tab and the command window when finished. Keep using
+the same browser and address to retain your locally saved settings/results.
+
+IF SOMETHING DOES NOT WORK
+- Python missing or Microsoft Store opens: finish the Python installation
+  with its launcher/PATH options, then run the trainer again.
+- Setup/download fails: check your internet connection. Send the developer
+  the error text from the command window; do not just close it.
+- Page unavailable: keep the command window open and use its printed URL.
+  If it says the port is already in use, close the older trainer window.
+- Controller not found: close competing apps; reconnect the cable; check
+  adapter mode/driver or try another Pro USB data cable. Check the selected
+  controller type and GameCube port, then try connecting again.
+- Still stuck or Windows blocks launch: send the developer the exact error,
+  trainer version, Windows version and controller/adapter model.
+
+IF THE TRAINER FEELS CHOPPY
+Try closing other browser tabs. If that does not help, fully close the
+browser and reopen only the trainer, leaving the launcher running.
+You can also try the same trainer address in Edge.

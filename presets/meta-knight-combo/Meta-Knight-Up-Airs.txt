@@ -1,0 +1,32 @@
+SDI-LAB-SEQUENCE 3
+name Meta Knight Up-Airs
+video Meta-Knight-Up-Airs.mp4
+order 5
+fps 60
+# Export correction: window 2 start +1 frame; window 5 start -1 frame. Durations unchanged.
+# Original impact timestamp comments below refer to the pre-export clip.
+frames 344
+# window <start_frame> <duration_frames> <escape_degrees>
+# Starts are impact + 1; durations use Ruben's calculator values without subtracting 1.
+# Short-hop aerials; no freshness bonus or staling.
+# Direction not supplied: right (0 degrees) is a placeholder for all hits.
+# 00:59 impact (59) - dash attack, early strong hit
+window 60 10 0
+# 01:41 impact (101) - up air
+window 103 8 0
+# 02:15 impact (135) - up air
+window 136 8 0
+# 02:49 impact (169) - up air
+window 170 8 0
+# 03:24 impact (204) - up air
+window 204 8 0
+# 03:57 impact (237) - up air
+window 238 8 0
+# 04:31 impact (271) - fair, hit 1 (supplied timestamp)
+window 272 7 0
+# 04:41 predicted impact (281) - fair, hit 2
+window 282 7 0
+# 04:51 predicted impact (291) - fair, hit 3 / finisher
+window 292 15 0
+# Fair hits 2-3 are unverified predictions using 3 animation frames + 7 pause frames per gap.
+# Impact-frame counting uncertainty can shift these predicted timestamps.

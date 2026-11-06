@@ -1,0 +1,70 @@
+SDI-LAB-SEQUENCE 3
+name Palutena Nair Train
+video video.mp4
+order 7
+fps 60
+# Export correction: all window starts shifted -1 frame. Durations unchanged.
+# Original impact timestamp comments below refer to the pre-export clip.
+frames 374
+# window <start_frame> <duration_frames> <escape_degrees>
+# Starts are impact + 1; durations use Ruben's calculator values without subtracting 1.
+# Nair 3 is full hop; other nairs are short hop. No freshness bonus or staling.
+# Direction not supplied: right (0 degrees) is a placeholder for all hits.
+# Intermediate contacts and uncertain finishers are predictions, not video-verified.
+# Assumes opponents are airborne for the final looping hit; SDI multiplier 0, omitted.
+# Nair 1: starts 00:53; short hop.
+# 00:57 supplied impact (57) - nair 1, multihit 1; SDI 0.3x
+window 57 3 0
+# 01:03 predicted impact (63) - nair 1, multihit 2; SDI 0.3x
+window 63 3 0
+# 01:09 predicted impact (69) - nair 1, multihit 3; SDI 0.3x
+window 69 3 0
+# 01:15 predicted impact (75) - nair 1, multihit 4; SDI 0.3x
+window 75 3 0
+# 01:21 predicted impact (81) - nair 1, multihit 5; SDI 0.3x
+window 81 3 0
+# 01:27 predicted impact (87) - late airborne multihit; SDI disabled, no target.
+# 01:33 supplied impact (93) - nair 1, finisher; SDI 1.0x
+window 93 13 0
+# Nair 2: starts 02:09; short hop.
+# 02:14 supplied impact (134) - nair 2, multihit 1; SDI 0.3x
+window 134 3 0
+# 02:20 predicted impact (140) - nair 2, multihit 2; SDI 0.3x
+window 140 3 0
+# 02:26 predicted impact (146) - nair 2, multihit 3; SDI 0.3x
+window 146 3 0
+# 02:32 predicted impact (152) - nair 2, multihit 4; SDI 0.3x
+window 152 3 0
+# 02:38 predicted impact (158) - nair 2, multihit 5; SDI 0.3x
+window 158 3 0
+# 02:44 predicted impact (164) - late airborne multihit; SDI disabled, no target.
+# 02:49 estimated / predicted impact (169) - nair 2, finisher; SDI 1.0x
+window 169 13 0
+# Nair 3: starts 03:27; full hop.
+# 03:31 supplied impact (211) - nair 3, multihit 1; SDI 0.3x
+window 211 3 0
+# 03:37 predicted impact (217) - nair 3, multihit 2; SDI 0.3x
+window 217 3 0
+# 03:43 predicted impact (223) - nair 3, multihit 3; SDI 0.3x
+window 223 3 0
+# 03:49 predicted impact (229) - nair 3, multihit 4; SDI 0.3x
+window 229 3 0
+# 03:55 predicted impact (235) - nair 3, multihit 5; SDI 0.3x
+window 235 3 0
+# 04:01 predicted impact (241) - late airborne multihit; SDI disabled, no target.
+# 04:07 estimated / predicted impact (247) - nair 3, finisher; SDI 1.0x
+window 247 13 0
+# Nair 4: starts 04:45; short hop.
+# 04:49 supplied impact (289) - nair 4, multihit 1; SDI 0.3x
+window 289 3 0
+# 04:55 predicted impact (295) - nair 4, multihit 2; SDI 0.3x
+window 295 3 0
+# 05:01 predicted impact (301) - nair 4, multihit 3; SDI 0.3x
+window 301 3 0
+# 05:07 predicted impact (307) - nair 4, multihit 4; SDI 0.3x
+window 307 3 0
+# 05:13 predicted impact (313) - nair 4, multihit 5; SDI 0.3x
+window 313 3 0
+# 05:19 predicted impact (319) - late airborne multihit; SDI disabled, no target.
+# 05:25 estimated / predicted impact (325) - nair 4, finisher; SDI 1.0x
+window 325 13 0

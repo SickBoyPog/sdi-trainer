@@ -1,0 +1,20 @@
+SDI-LAB-SEQUENCE 3
+name Steve Fair
+video Steve-fair.mp4
+order 1
+fps 60
+# Export correction: all window starts shifted -1 frame. Durations unchanged.
+# Original impact timestamp comments below refer to the pre-export clip.
+frames 272
+# window <start_frame> <duration_frames> <escape_degrees>
+# Starts are impact + 1; durations use Ruben's calculator values without subtracting 1.
+# Short-hop fair; no freshness bonus or staling.
+# Direction not supplied: right (0 degrees) is a placeholder for all hits.
+# 02:22 impact (142) - iron fair, spike hitbox
+window 142 19 0
+# 03:03 impact (183) - iron jab
+window 183 8 0
+# 03:28 impact (208) - iron walking jab / forward tilt
+window 208 8 0
+# 03:56 impact (236) - iron walking jab / forward tilt
+window 236 8 0

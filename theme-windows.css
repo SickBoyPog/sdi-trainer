@@ -1,0 +1,707 @@
+/* Windows 95 theme overrides. Cascade order retained; superseded declarations and retired editor selectors removed. */
+
+:root {
+  --bg: #263a3b;
+  --panel: #a9aaad;
+  --panel-2: #97999d;
+  --text: #16191c;
+  --muted: #41464a;
+  --line: #6b6e72;
+  font-family: Tahoma, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+
+body {
+  background: rgb(38, 58, 59);
+}
+
+.page-title h1 {
+  font-family: Tahoma, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: rgb(211, 217, 218);
+  text-shadow: rgb(20, 40, 41) 2px 2px;
+}
+
+.panel, .session-stack.panel, .timeline-panel, .frame-test, #settingsDrawer {
+  background: rgb(169, 170, 173);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(200, 201, 203) rgb(80, 83, 88) rgb(80, 83, 88) rgb(200, 201, 203);
+  border-radius: 0px;
+  box-shadow: rgb(224, 224, 225) 1px 1px inset, rgb(121, 123, 128) -1px -1px inset;
+  color: rgb(22, 25, 28);
+}
+
+h1, h2, h3, .button {
+  font-family: Tahoma, "Segoe UI", sans-serif;
+  font-style: normal !important;
+  text-shadow: none !important;
+  letter-spacing: 0px !important;
+}
+
+.panel h2, .session-stack .session-panel h2, .frame-test summary, #settingsDrawer h2 {
+  font-weight: 700;
+  color: rgb(238, 240, 241);
+}
+
+.stick-panel > .panel-heading, .timeline-title-row > div:first-child, #sessionReady, #settingsDrawer > .panel-heading {
+  background: linear-gradient(90deg, rgb(38, 56, 82), rgb(80, 97, 122));
+  box-shadow: none;
+  padding: 5px 8px;
+  border-radius: 0px;
+}
+
+.stick-panel > .panel-heading h2, .timeline-title-row h2, #sessionReady h2 {
+  color: rgb(238, 240, 241);
+}
+
+.session-stack .session-panel {
+  background: transparent;
+  border: 0px;
+  box-shadow: none;
+}
+
+.session-stack .session-panel h2 {
+  margin: 0px;
+  font-size: 22px;
+}
+
+.session-stack .results-panel {
+  background: transparent;
+  border-top: 1px solid rgb(119, 122, 128);
+  box-shadow: none;
+}
+
+.session-stack #resultSummary {
+  color: rgb(57, 63, 68);
+}
+
+.session-stack .result-score strong {
+  font-family: Consolas, monospace;
+  font-style: normal;
+  color: rgb(27, 40, 54);
+}
+
+.session-stack .results-panel .kicker {
+  color: rgb(57, 70, 82);
+}
+
+.button, .page-title #settingsButton, .page-title #quickConnectButton, .button.primary, #startButton, #replayButton, #replayWindow, #previousFrame, #nextFrame, #stopButton, .preset-controls .button {
+  background: rgb(175, 176, 180);
+  color: rgb(21, 25, 30);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(222, 222, 224) rgb(88, 91, 96) rgb(88, 91, 96) rgb(222, 222, 224);
+  border-radius: 0px;
+  box-shadow: rgb(196, 197, 200) 1px 1px inset, rgb(139, 142, 147) -1px -1px inset;
+  text-shadow: none;
+  font-weight: 400;
+}
+
+.button:hover:enabled, .button.primary:hover:enabled, #startButton:hover:enabled, #replayButton:hover:enabled, #replayWindow:hover:enabled, #previousFrame:hover:enabled, #nextFrame:hover:enabled {
+  background: rgb(191, 192, 195);
+  border-color: rgb(235, 235, 237) rgb(92, 94, 99) rgb(92, 94, 99) rgb(235, 235, 237);
+  box-shadow: rgb(209, 210, 212) 1px 1px inset, rgb(146, 149, 154) -1px -1px inset;
+}
+
+.button:active:enabled, .preset-controls .button.selected {
+  background: rgb(146, 150, 158);
+  border-color: rgb(87, 91, 98) rgb(210, 211, 214) rgb(210, 211, 214) rgb(87, 91, 98);
+  box-shadow: rgb(116, 121, 131) 1px 1px inset;
+  color: rgb(20, 37, 57);
+}
+
+.preset-controls .button.selected {
+  outline: rgb(47, 63, 82) dotted 1px;
+  outline-offset: -5px;
+}
+
+#startButton {
+  font-weight: 700;
+}
+
+.preset-shoulder-icon {
+  filter: grayscale(1);
+  opacity: 0.8;
+}
+
+select, input[type="number"], textarea {
+  border-radius: 0px;
+  box-shadow: rgb(134, 138, 145) 1px 1px inset;
+  background: rgb(198, 199, 202) !important;
+  color: rgb(24, 35, 46) !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-image: none !important;
+  border-color: rgb(87, 91, 97) rgb(219, 220, 222) rgb(219, 220, 222) rgb(87, 91, 97) !important;
+}
+
+.pill {
+  background: rgb(163, 165, 171);
+  color: rgb(52, 64, 76);
+  border: 1px solid rgb(126, 130, 138);
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.stick-sidebar .stick-view-key, .stick-sidebar .stick-display-label {
+  color: rgb(48, 59, 71);
+}
+
+.stick-stage {
+  border-radius: 0px !important;
+}
+
+.metric {
+  background: rgb(143, 156, 152);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(90, 102, 99) rgb(196, 204, 202) rgb(196, 204, 202) rgb(90, 102, 99);
+  border-radius: 0px;
+  box-shadow: rgb(119, 133, 127) 1px 1px inset;
+}
+
+.metric span {
+  color: rgb(39, 58, 50);
+}
+
+.metric strong {
+  color: rgb(16, 43, 34);
+  font-family: Consolas, monospace;
+}
+
+.metric small {
+  background: rgb(195, 196, 200);
+  color: rgb(30, 43, 55);
+  border-radius: 0px;
+}
+
+.timeline-key {
+  background: rgb(153, 156, 163);
+  color: rgb(39, 51, 63);
+  border: 1px solid rgb(112, 118, 128);
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.clock strong {
+  color: rgb(23, 43, 62);
+}
+
+.clock span {
+  color: rgb(70, 84, 97);
+}
+
+.key-net {
+  color: rgb(36, 52, 67);
+}
+
+.key-arrow {
+  color: rgb(40, 88, 64);
+}
+
+.window-detail, #inspectionState, #inspectedFrame, .replay-status, .replay-speed-setting {
+  color: rgb(52, 64, 78);
+}
+
+#windowScore {
+  color: rgb(37, 67, 54);
+}
+
+.window-inspector {
+  border-top: 1px solid rgb(115, 119, 128);
+}
+
+.window-inspector h2 {
+  color: rgb(32, 51, 73);
+}
+
+.text-button {
+  color: rgb(45, 69, 96);
+}
+
+.frame-test summary {
+  color: rgb(38, 59, 80);
+}
+
+.setting-title, .settings-section h3 {
+  color: rgb(36, 51, 68);
+}
+
+.setting-title output {
+  background: rgb(145, 153, 164);
+  color: rgb(29, 48, 69);
+  border-radius: 0px;
+}
+
+.setting-help, .range-endpoints, .settings-diagnostics {
+  color: rgb(61, 75, 89);
+}
+
+.settings-section, .settings-diagnostics {
+  border-color: rgb(124, 130, 140);
+}
+
+.settings-diagnostics .device-stats > div {
+  background: rgb(158, 162, 171);
+  border-color: rgb(123, 129, 140);
+  border-radius: 0px;
+}
+
+.device-stats dt {
+  color: rgb(60, 75, 91);
+}
+
+.device-stats dd {
+  color: rgb(27, 48, 71);
+}
+
+.notice {
+  background: rgb(183, 179, 162);
+  border-color: rgb(131, 129, 111);
+  border-radius: 0px;
+}
+
+.notice strong {
+  color: rgb(76, 69, 45);
+}
+
+.notice span {
+  color: rgb(75, 73, 62);
+}
+
+.attempt-history-label {
+  color: rgb(56, 70, 87);
+}
+
+.page-tools .connection {
+  color: rgb(198, 211, 210);
+}
+
+input[type="range"] {
+  accent-color: rgb(68, 91, 119) !important;
+}
+
+#replaySpeed::-webkit-slider-runnable-track {
+  background: rgb(130, 140, 153);
+  border-color: rgb(93, 107, 124);
+  border-radius: 0px;
+}
+
+#replaySpeed::-webkit-slider-thumb {
+  background: rgb(183, 188, 196);
+  border: 1px solid rgb(75, 92, 113);
+  border-radius: 0px;
+}
+
+#replaySpeed::-moz-range-track {
+  background: rgb(130, 140, 153);
+  border-color: rgb(93, 107, 124);
+  border-radius: 0;
+}
+
+#replaySpeed::-moz-range-thumb {
+  background: rgb(183, 188, 196);
+  border-color: rgb(75, 92, 113);
+  border-radius: 0;
+}
+
+#settingsDrawer::backdrop {
+  background: rgba(20, 34, 36, 0.65);
+  backdrop-filter: none;
+}
+
+.button:disabled {
+  color: rgb(98, 105, 115);
+  opacity: 0.65;
+  text-shadow: rgb(204, 204, 204) 1px 1px !important;
+}
+
+footer {
+  color: rgb(164, 184, 183);
+}
+
+.physical-key-dot {
+  background: rgb(208, 211, 216);
+  border-color: rgb(102, 113, 127);
+}
+
+.ultimate-key-diamond {
+  background: rgb(171, 155, 195);
+}
+
+.timeline-key .key-arrow {
+  color: rgb(103, 215, 180);
+}
+
+.timeline-key .key-net {
+  color: rgb(244, 241, 232);
+}
+
+.timeline-key .key-c {
+  color: rgb(243, 201, 105);
+}
+
+.timeline-key .key-early {
+  color: rgb(255, 95, 104);
+}
+
+.session-stack #resultTitle, .window-inspector h2 {
+  color: rgb(32, 51, 73);
+}
+
+.session-stack.has-personal-best #personalBest {
+  border-top-color: rgb(96, 121, 109);
+  border-right-color: rgb(96, 121, 109);
+  border-bottom-color: rgb(96, 121, 109);
+  border-radius: 0px;
+  box-shadow: rgb(204, 214, 208) 1px 1px inset;
+}
+
+.session-stack #personalBest h3 {
+  color: rgb(31, 75, 60);
+}
+
+.session-stack #personalBest #bestScore {
+  color: rgb(23, 44, 35);
+  font-family: Consolas, monospace;
+}
+
+.session-stack #personalBest p {
+  color: rgb(53, 71, 63);
+}
+
+.session-stack #personalBest #bestMessage {
+  color: rgb(23, 84, 57);
+}
+
+.metric .metric-info {
+  color: rgb(52, 76, 65);
+  border-color: rgb(91, 113, 101);
+}
+
+.metric .metric-info:hover {
+  color: rgb(16, 43, 34);
+  background: rgb(196, 206, 200);
+}
+
+#practiceReset {
+  background: rgb(175, 176, 180);
+  color: rgb(37, 51, 67);
+  border-radius: 0px;
+  border-color: rgb(222, 224, 226) rgb(85, 92, 101) rgb(85, 92, 101) rgb(222, 224, 226);
+}
+
+.practice-warning-icon {
+  background: rgb(23, 38, 59);
+  color: rgb(255, 140, 152);
+  border-color: rgb(255, 101, 118);
+}
+
+#resultsPlaceholder {
+  color: rgb(59, 71, 80);
+}
+
+#settingsDrawer select {
+  font-family: Tahoma, sans-serif;
+}
+
+#personalBest .button {
+  border-radius: 0px !important;
+}
+
+.timeline-footer .replay-actions .button, .timeline-footer #timelineFrameControls .button {
+  border-radius: 0px;
+}
+
+#timelineCanvas, #windowFrames {
+  background: rgb(16, 25, 37);
+  border-radius: 0px;
+  box-shadow: rgb(5, 10, 16) 1px 1px inset;
+}
+
+#stickCanvas, #debugMainStick, #debugCStick {
+  background: rgb(20, 38, 49);
+}
+
+#cStickCanvas {
+  background: rgb(23, 42, 53);
+  border: 1px solid rgb(86, 103, 115);
+}
+
+.stick-view-key .physical-key-dot {
+  background: rgb(255, 240, 223);
+}
+
+.ultimate-key-diamond {
+  border-color: rgb(207, 164, 255);
+}
+
+.timeline-stage {
+  background: rgb(16, 25, 37);
+}
+
+.practice-warning-tip {
+  color: rgb(241, 220, 224);
+}
+
+#stickCanvas, #cStickCanvas {
+  background: transparent;
+  border: 0px;
+  box-shadow: none;
+}
+
+#timelineCanvas, .timeline-stage {
+  background: transparent;
+  box-shadow: none;
+}
+
+.timeline-footer .timeline-key {
+  background: rgb(150, 154, 159);
+  color: rgb(25, 38, 50);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(98, 103, 110) rgb(213, 215, 218) rgb(213, 215, 218) rgb(98, 103, 110);
+  border-radius: 0px;
+  box-shadow: rgb(126, 132, 140) 1px 1px inset;
+  font-family: Tahoma, "Segoe UI", sans-serif;
+}
+
+.timeline-key .key-arrow, .timeline-key .key-net, .timeline-key .key-c, .timeline-key .key-early {
+  text-shadow: rgb(41, 53, 64) 0px 1px, rgb(41, 53, 64) 1px 0px, rgb(41, 53, 64) -1px 0px, rgb(41, 53, 64) 0px -1px;
+}
+
+.timeline-key .key-dot {
+  box-shadow: rgb(76, 86, 98) 0px 0px 0px 1px;
+}
+
+.timeline-key .key-window {
+  background: rgb(42, 61, 88);
+  border-radius: 0px;
+  box-shadow: rgb(96, 113, 138) 1px 1px inset;
+}
+
+#videoPanel {
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 0px !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-image: none !important;
+  border-color: rgb(222, 222, 224) rgb(85, 89, 94) rgb(85, 89, 94) rgb(222, 222, 224) !important;
+  box-shadow: rgb(196, 198, 201) 1px 1px inset, rgb(121, 125, 131) -1px -1px inset !important;
+}
+
+#videoPanel #comboVideo {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 0px !important;
+}
+
+#videoPanel #hitlagOrb {
+  border-radius: 0px !important;
+}
+
+@media (min-width: 1101px) {
+  .training-column > .stick-panel, .training-column > .session-stack, .training-column > #videoPanel {
+    height: 440px;
+    min-height: 440px;
+    max-height: 440px;
+    box-sizing: border-box;
+    align-self: stretch;
+  }
+
+  .training-column > #videoPanel {
+    display: flex;
+    justify-content: center;
+    background: rgb(8, 11, 13);
+    padding: 0px;
+  }
+
+  #videoPanel #comboVideo {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    flex: 1 1 0%;
+    min-height: 0px;
+    object-fit: contain;
+  }
+
+  #videoPanel #hitlagOrb {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#startButton, #replayButton, .session-stack #personalBest #replayBest {
+  background: rgb(189, 201, 195);
+  border-color: rgb(237, 241, 238) rgb(97, 118, 107) rgb(97, 118, 107) rgb(237, 241, 238);
+  box-shadow: rgb(214, 224, 218) 1px 1px inset, rgb(145, 166, 154) -1px -1px inset;
+  color: rgb(23, 58, 43);
+  font-weight: 700;
+}
+
+#startButton:hover:enabled, #replayButton:hover:enabled, .session-stack #personalBest #replayBest:hover:enabled {
+  background: rgb(207, 219, 212);
+  border-color: rgb(247, 250, 248) rgb(96, 120, 106) rgb(96, 120, 106) rgb(247, 250, 248);
+  box-shadow: rgb(229, 238, 232) 1px 1px inset, rgb(161, 181, 168) -1px -1px inset;
+}
+
+#startButton:active:enabled, #replayButton:active:enabled, .session-stack #personalBest #replayBest:active:enabled {
+  border-color: rgb(97, 118, 107) rgb(237, 241, 238) rgb(237, 241, 238) rgb(97, 118, 107);
+  box-shadow: rgb(145, 166, 154) 1px 1px inset;
+  background: rgb(179, 194, 185);
+}
+
+#startButton {
+  background: rgb(207, 179, 151);
+  color: rgb(75, 45, 25);
+  border-color: rgb(241, 223, 203) rgb(148, 114, 83) rgb(148, 114, 83) rgb(241, 223, 203);
+  box-shadow: rgb(228, 205, 181) 1px 1px inset, rgb(179, 147, 115) -1px -1px inset;
+}
+
+#startButton:hover:enabled {
+  background: rgb(223, 194, 164);
+  border-color: rgb(248, 232, 214) rgb(148, 114, 83) rgb(148, 114, 83) rgb(248, 232, 214);
+  box-shadow: rgb(239, 219, 197) 1px 1px inset, rgb(185, 155, 123) -1px -1px inset;
+}
+
+#startButton:active:enabled {
+  background: rgb(197, 167, 135);
+  border-color: rgb(148, 114, 83) rgb(241, 223, 203) rgb(241, 223, 203) rgb(148, 114, 83);
+  box-shadow: rgb(173, 137, 101) 1px 1px inset;
+}
+
+.stick-symbol-tip, .lockout-tip, .guide-frame-tip {
+  background: rgb(195, 196, 200);
+  color: rgb(30, 43, 55);
+  border-color: rgb(98, 103, 110) rgb(222, 222, 224) rgb(222, 222, 224) rgb(98, 103, 110);
+  border-radius: 0px;
+  font-family: Tahoma, "Segoe UI", sans-serif;
+}
+
+@media (min-width: 1101px) {
+  #videoPanel #comboVideo {
+    object-fit: cover;
+  }
+}
+
+.timeline-key .legend-toggle {
+  border-radius: 0px;
+}
+
+.timeline-key .legend-toggle:hover {
+  background: rgb(175, 179, 184);
+  border-color: rgb(105, 113, 124);
+}
+
+body[data-theme="windows"] .window-inspector {
+  background: rgb(170, 170, 170);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(238, 238, 238) rgb(85, 85, 85) rgb(85, 85, 85) rgb(238, 238, 238);
+  padding: 12px;
+  color: rgb(23, 44, 64);
+}
+
+body[data-theme="windows"] .window-inspector select, body[data-theme="windows"] #closeInspector {
+  border-radius: 0px;
+  background: rgb(187, 187, 187);
+  color: rgb(23, 44, 64);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(238, 238, 238) rgb(85, 85, 85) rgb(85, 85, 85) rgb(238, 238, 238);
+}
+
+body[data-theme="windows"] .window-inspector #windowFrames {
+  background: rgb(78, 83, 90);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(85, 85, 85) rgb(238, 238, 238) rgb(238, 238, 238) rgb(85, 85, 85);
+}
+
+body[data-theme="windows"] .window-inspector #inspectionState, body[data-theme="windows"] .window-inspector label, body[data-theme="windows"] #windowScore {
+  color: rgb(23, 44, 64);
+}
+
+body[data-theme="windows"] .legend-toggle {
+  border-radius: 0px;
+  background: rgb(187, 187, 187);
+  color: rgb(23, 44, 64);
+}
+
+.session-actions #startButton {
+  background: rgb(166, 197, 172);
+  color: rgb(23, 60, 39);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(217, 236, 220) rgb(84, 122, 93) rgb(84, 122, 93) rgb(217, 236, 220);
+  box-shadow: rgb(190, 214, 194) 1px 1px inset, rgb(140, 173, 148) -1px -1px inset;
+}
+
+.session-actions #startButton:hover:enabled {
+  background: rgb(180, 210, 186);
+  border-color: rgb(229, 242, 232) rgb(84, 122, 93) rgb(84, 122, 93) rgb(229, 242, 232);
+}
+
+.session-actions #startButton:active:enabled {
+  background: rgb(148, 184, 155);
+  border-color: rgb(84, 122, 93) rgb(217, 236, 220) rgb(217, 236, 220) rgb(84, 122, 93);
+  box-shadow: rgb(121, 159, 128) 1px 1px inset;
+}
+
+.session-stack.has-personal-best #personalBest {
+  background: linear-gradient(135deg, rgb(193, 182, 143), rgb(182, 175, 152));
+  border-left-color: rgb(139, 122, 70);
+}
+
+.session-stack #personalBest h3, .session-stack #personalBest #bestMessage {
+  color: rgb(101, 80, 27);
+}
+
+.session-stack #personalBest #replayBest {
+  background: rgb(201, 191, 157);
+  color: rgb(81, 66, 28);
+  border-color: rgb(232, 223, 196) rgb(135, 118, 68) rgb(135, 118, 68) rgb(232, 223, 196);
+}
+
+.session-stack #personalBest #replayBest:hover:enabled {
+  background: rgb(213, 202, 165);
+}
+
+.session-actions #stopButton {
+  background: rgb(199, 159, 159);
+  color: rgb(86, 38, 41);
+  border-width: 2px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(238, 215, 215) rgb(135, 88, 91) rgb(135, 88, 91) rgb(238, 215, 215);
+  box-shadow: rgb(220, 186, 186) 1px 1px inset, rgb(174, 128, 131) -1px -1px inset;
+}
+
+.session-actions #stopButton:hover:enabled {
+  background: rgb(213, 174, 174);
+  border-color: rgb(245, 225, 225) rgb(135, 88, 91) rgb(135, 88, 91) rgb(245, 225, 225);
+}
+
+.session-actions #stopButton:active:enabled {
+  background: rgb(185, 139, 142);
+  border-color: rgb(135, 88, 91) rgb(238, 215, 215) rgb(238, 215, 215) rgb(135, 88, 91);
+  box-shadow: rgb(163, 113, 117) 1px 1px inset;
+}
+
+#clearBestInline .button{border-radius:0;background:#c0c0c0;color:#111;border:2px solid;border-color:#fff #404040 #404040 #fff;box-shadow:inset -1px -1px #808080;transform:none}
+#clearBestInline .button:hover:enabled{background:#d0d0d0}
+#clearBestInline .button:active:enabled{border-color:#404040 #fff #fff #404040;box-shadow:inset 1px 1px #808080}

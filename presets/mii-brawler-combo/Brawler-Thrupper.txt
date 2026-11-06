@@ -1,0 +1,21 @@
+SDI-LAB-SEQUENCE 3
+name Brawler Thrupper
+video Brawler-Thrupper.mp4
+order 6
+di_frames 170 433
+fps 60
+frames 540
+# window <start_frame> <duration_frames> <escape_degrees>
+# Starts are impact + 1; durations use Ruben's calculator values without subtracting 1.
+# Short-hop up air; no freshness bonus or staling.
+# Direction not supplied: right (0 degrees) is a placeholder for all hits.
+# 01:18 impact (78) - up air; 9% base damage, 0.85 short-hop multiplier, 1.0 hitlag multiplier
+window 79 10 0
+# 02:29 impact (149) - Thrust Uppercut finisher
+window 150 20 0
+# 06:52 impact (412) - Thrust Uppercut finisher
+window 413 20 0
+# Sources:
+# https://www.ssbwiki.com/Mii_Brawler_(SSBU)/Up_aerial
+# https://www.ssbwiki.com/Mii_Brawler_(SSBU)/Up_special/Custom_2
+# https://w.atwiki.jp/smashsp_kensyou/pages/88.html
