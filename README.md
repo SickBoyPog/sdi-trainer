@@ -8,7 +8,7 @@ Practise Smash Directional Influence (SDI) against recorded moves and combos in 
 
 ## Download for Windows
 
-1. Open **Releases** and download the Windows ZIP from the latest release.
+1. Open [Releases](https://github.com/SickBoyPog/sdi-trainer/releases) and download the Windows ZIP from the latest release.
 2. Extract the ZIP and follow the [Windows setup guide](INSTALL-WINDOWS.txt) to prepare your controller and start the trainer.
 
 The trainer supports 64-bit Windows 10 and 11, a GameCube controller through a compatible USB adapter, and the original Nintendo Switch Pro Controller over USB.
