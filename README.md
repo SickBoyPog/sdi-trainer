@@ -4,7 +4,7 @@ Practise Smash Directional Influence (SDI) against recorded moves and combos in 
 
 **[Download and setup for Windows](#download-for-windows)**
 
-![Steve Walk the Dog replay with Live Input, the timeline, and the Hitlag Inspector](docs/trainer-preview.png)
+![Steve Walk the Dog replay in the Windows 95 theme with Live Input, the timeline, and the Hitlag Inspector](docs/trainer-preview.png)
 
 ## Download for Windows
 
