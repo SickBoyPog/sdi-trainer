@@ -1,6 +1,6 @@
 # SickBoy’s SDI Trainer
 
-Practise Smash Directional Influence (SDI) against recorded moves and combos in Super Smash Bros. Ultimate. The trainer aims to simulate Ultimate’s SDI rules as closely as possible and shows how your inputs register frame by frame.
+Practice Smash Directional Influence (SDI) against recorded moves and combos in Super Smash Bros. Ultimate. The trainer aims to simulate Ultimate’s SDI rules as closely as possible and shows how your inputs register frame by frame.
 
 **[Download and setup for Windows](#download-for-windows)**
 
@@ -15,7 +15,7 @@ The trainer supports 64-bit Windows 10 and 11, a GameCube controller through a c
 
 ## What you can do
 
-- **Practise SDI against moves and combos.** Review accepted, buffered, and missed inputs on the timeline. Open the Hitlag Inspector to step through an individual window.
+- **Practice SDI against moves and combos.** Review accepted, buffered, and missed inputs on the timeline. Open the Hitlag Inspector to step through an individual window.
 - **Learn SDI and C-Stick timing.** Open **How to SDI** and try the inputs in the Live Input viewer.
 - **Make your own preset.** Click **Create new**, drop in a clip, and mark hitlag windows and optional DI frames. Use 60 FPS footage when possible. See the [preset file guide](presets/README.md) for sharing or editing preset folders.
 - **Play DWB.** Move with SDI and collect bananas in Burst or Endurance mode.
